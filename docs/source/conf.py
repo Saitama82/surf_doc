@@ -23,7 +23,7 @@ copyright = '2020, Francesco'
 author = 'Francesco Trotta, Nadia Pinardi'
 
 # The full version, including alpha/beta/rc tags
-release = '2.00'
+release = 'V1.0'
 
 
 # -- General configuration ---------------------------------------------------
