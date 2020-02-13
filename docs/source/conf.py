@@ -23,7 +23,7 @@ copyright = '2020, Francesco'
 author = 'Francesco Trotta, Nadia Pinardi'
 
 # The full version, including alpha/beta/rc tags
-release = '2.00'
+release = 'V1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -67,7 +67,7 @@ exclude_patterns = []
 #
 
 # html_theme = 'alabaster'
-# html_theme = 'classic'
+
 html_theme = "classic"
 html_theme_options = {
     # "rightsidebar": "true",
