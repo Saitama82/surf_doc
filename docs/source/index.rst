@@ -1,7 +1,7 @@
-SURF 1.00 documentation
-=======================
+SURF-NEMO 1.00 documentation
+============================
 
-Welcome to the documentation for surf 1.00
+Welcome to the documentation for surf-nemo 1.00
 
 You can download the surf packages `here <http://surf.local/download.php>`_
 
