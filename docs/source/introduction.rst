@@ -4,6 +4,8 @@
 Introduction
 ************
 
+The :github:`_url_` url is aliased to :github:`GitHub` and also to :github:`this`
+
 The Structured and Unstructured grid Relocatable ocean platform for Forcasting (SURF) is an open source
 package devoted to generate high resolution oceanic forecasts over limited domains of interest. It is designed
 to be set up by non-expert users anywhere in the World Ocean with few steps and it is able to provide
