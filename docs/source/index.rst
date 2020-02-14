@@ -4,7 +4,7 @@ Welcome to SURF's documentation!
 SURF has a `home page <http://surf.local/>`_
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    introduction.rst
