@@ -81,7 +81,7 @@ html_theme_options = {
     'externalrefs':True,
     'footerbgcolor': 'white',
     'footertextcolor': 'darkslategrey',
-    'sidebarbgcolor': 'white',
+    'sidebarbgcolor': '#fcfcfc',
     'sidebarbtncolor': 'darkslategrey',
     'sidebartextcolor': 'black',
     'sidebarlinkcolor':'green',
