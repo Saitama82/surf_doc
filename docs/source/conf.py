@@ -183,7 +183,7 @@ extensions.append('sphinxcontrib.versioning.sphinx_')
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
  '**': [
- 'sourcelink.html',
+ # 'sourcelink.html',
  'searchbox.html',
  'globaltoc.html',
  'relations.html']
