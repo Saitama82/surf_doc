@@ -92,7 +92,7 @@ html_theme_options = {
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': '#F6F6F6',
+    'headbgcolor': '#fcfcfc',
     'headtextcolor': 'black'
     # 'headlinkcolor': 'red',
     # 'codebgcolor': 'red',
