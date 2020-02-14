@@ -1,7 +1,13 @@
-Welcome to SURF's documentation!
-=================================
+SURF 1.00 documentation
+=======================
 
-SURF has a `home page <http://surf.local/>`_
+Welcome to the documentation for surf 1.00
+
+You can download the surf packages from `home page <http://surf.local/>`_
+
+Please read the `release notes <http://surf.local/>`_ to see what has changed since the previous release.
+
+The documentation is also available in PDF format: `home page <http://surf.local/>`_
 
 .. toctree::
    :maxdepth: 2
