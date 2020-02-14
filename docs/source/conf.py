@@ -70,12 +70,6 @@ exclude_patterns = []
 #---sphinx-themes-----
 # html_theme = 'alabaster'
 
-extlinks = {'so': ('https://stackoverflow.com/%s', None)}
-commonlinks = {
-                'issues': 'https://github.com/sphinx-doc/sphinx/issues',
-                'github': 'https://github.com'
-              }
-
 #---sphinx-themes-----
 html_theme = "classic"
 # html_theme_options = {
@@ -94,6 +88,7 @@ html_theme_options = {
     'relbarbgcolor': 'darkslategrey',
     'relbartextcolor': 'white',
     'relbarlinkcolor': 'white',
+    'codebgcolor': 'red',
     'bgcolor': 'white',
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
