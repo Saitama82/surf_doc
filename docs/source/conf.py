@@ -93,10 +93,10 @@ html_theme_options = {
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
     'headbgcolor': '#F6F6F6',
-    'headtextcolor': 'red',
-    'headlinkcolor': 'red',
-    'codebgcolor': 'red',
-    'codetextcolor': 'red'
+    'headtextcolor': 'black'
+    # 'headlinkcolor': 'red',
+    # 'codebgcolor': 'red',
+    # 'codetextcolor': 'red'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
