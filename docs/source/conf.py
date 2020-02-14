@@ -122,12 +122,8 @@ html_theme_options = {
 
 
 # Custom sidebar templates, filenames relative to this file.
-html_sidebars = {
-    # Defaults taken from http://www.sphinx-doc.org/en/stable/config.html#confval-html_sidebars
-    # Removes the quick search block
-    # '**': ['localtoc.html', 'relations.html', 'customsourcelink.html'],
-    'index': ['indexsidebar.html'],
-}
+
+html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
 
 
 
