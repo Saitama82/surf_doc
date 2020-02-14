@@ -79,10 +79,10 @@ html_theme = "classic"
 
 html_theme_options = {
     'collapsiblesidebar': True,
-    'root_name':'Surf',
-    'root_url':'http://surf.local/',
-    'root_icon':'surflogo2.png',
-    'root_include_title':'True'
+    'externalrefs':True,
+    # 'sidebar_span': 6, # 1(min) - 12(max)
+    'inner_theme': True,
+    'inner_theme_name': 'bootswatch-amelia'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
