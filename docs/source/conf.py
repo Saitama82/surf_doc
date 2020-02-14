@@ -85,7 +85,10 @@ html_theme_options = {
     'sidebarbgcolor': 'white',
     'sidebarbtncolor': 'darkslategrey',
     'sidebartextcolor': 'darkgreen',
-    'sidebarlinkcolor':'green'
+    'sidebarlinkcolor':'green',
+    'relbarbgcolor': 'darkslategrey',
+    'relbartextcolor': 'white',
+    'relbarlinkcolor': 'white'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
