@@ -79,9 +79,6 @@ html_theme = "classic"
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs':True,
-    'html_logo_height' : '50px',
-  'html_logo_width'  : '50px',
-  'html_logo_margin' : '0px',
     'footerbgcolor': 'white',
     'footertextcolor': 'darkslategrey',
     'sidebarbgcolor': 'white',
@@ -141,6 +138,12 @@ html_title = "SURF documentation"
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = '_static/surflogo2.png'
+
+
+html_logo_height = '50px',
+html_logo_width  = '50px',
+html_logo_margin = '0px',
+
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
