@@ -72,10 +72,18 @@ exclude_patterns = []
 
 
 #---sphinx-themes-----
-# html_theme = "classic"
+html_theme = "classic"
 # html_theme_options = {
 #     "relbarbgcolor": "black"
 # }
+
+html_theme_options = {
+    'collapsiblesidebar': True,
+    'root_name':'Surf',
+    'root_url':'http://surf.local/',
+    'root_icon':'surflogo2.png',
+    'root_include_title':'True'
+}
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
@@ -107,22 +115,20 @@ exclude_patterns = []
 # headfont (CSS font-family): Font for headings.
 
 
-#---sphinx-themes-----
-html_theme = 'python_docs_theme'
-
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
+# #---sphinx-themes-----
+# html_theme = 'python_docs_theme'
 #
-html_theme_options = {
-    'collapsiblesidebar': True,
-    # 'issues_url': 'https://docs.python.org/3/bugs.html',
-    'root_name':'Surf',
-    'root_url':'http://surf.local/',
-    'root_icon':'surflogo2.png',
-    'root_include_title':'True'
-}
+# # Theme options are theme-specific and customize the look and feel of a theme
+# # further.  For a list of options available for each theme, see the
+# # documentation.
+# #
+# html_theme_options = {
+#     'collapsiblesidebar': True,
+#     'root_name':'Surf',
+#     'root_url':'http://surf.local/',
+#     'root_icon':'surflogo2.png',
+#     'root_include_title':'True'
+# }
 
 
 
