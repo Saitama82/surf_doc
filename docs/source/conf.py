@@ -145,7 +145,22 @@ html_theme_options = {
 
 
 # Custom sidebar templates, filenames relative to this file.
-html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
+# html_sidebars = {
+#  '**': [
+#  'globaltoc.html',
+#  'relations.html',
+#  'sourcelink.html',
+#  'searchbox.html']
+#  }
+
+ html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+    ]
+}
 
 
 
