@@ -139,7 +139,6 @@ html_title = "SURF documentation"
 # of the sidebar.
 html_logo = '_static/surflogo2.png'
 
-
 html_logo_height = '20px'
 html_logo_width  = '20px'
 html_logo_margin = '0px'
@@ -176,13 +175,18 @@ html_last_updated_fmt = '%b %d, %Y'
 
 
 # Custom sidebar templates, filenames relative to this file.
-html_sidebars = {
- '**': [
- 'searchbox.html',
- 'globaltoc.html',
- 'relations.html',
- 'sourcelink.html']
- }
+# html_sidebars = {
+#  '**': [
+#  'searchbox.html',
+#  'globaltoc.html',
+#  'relations.html',
+#  'sourcelink.html']
+#  }
+
+ html_sidebars = {
+   '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
+   'using/windows': ['windowssidebar.html', 'searchbox.html'],
+}
 
 
 
