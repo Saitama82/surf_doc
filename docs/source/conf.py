@@ -79,6 +79,7 @@ html_theme = "classic"
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs':True,
+    'display_version': True,
     'footerbgcolor': 'white',
     'footertextcolor': 'darkslategrey',
     'sidebarbgcolor': 'white',
