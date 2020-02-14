@@ -1,10 +1,13 @@
-.. surf documentation master file, created by
-   sphinx-quickstart on Wed Feb  5 21:36:47 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+===============
+Welcome to SURF
+===============
 
-Welcome to surf's documentation!
-================================
+Welcome to SURF's documentation!
+=================================
+
+Hedge has a `home page <http://mathema.tician.de/software/hedge>`_
+and (moderately useless)
+`auto-generated reference documentation <http://documen.tician.de/hedge-reference>`_
 
 .. toctree::
    :maxdepth: 2
