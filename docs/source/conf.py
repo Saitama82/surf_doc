@@ -41,6 +41,7 @@ extensions.append('sphinx.ext.intersphinx')
 extensions.append('sphinx.ext.mathjax')
 extensions.append('sphinx.ext.viewcode')
 extensions.append('sphinx.ext.graphviz')
+extensions.append('sphinx.ext.extlinks')
 
 autosummary_generate = True
 
@@ -69,7 +70,11 @@ exclude_patterns = []
 #---sphinx-themes-----
 # html_theme = 'alabaster'
 
-
+extlinks = {'so': ('https://stackoverflow.com/%s', None)}
+commonlinks = {
+                'issues': 'https://github.com/sphinx-doc/sphinx/issues',
+                'github': 'https://github.com'
+              }
 
 #---sphinx-themes-----
 html_theme = "classic"
