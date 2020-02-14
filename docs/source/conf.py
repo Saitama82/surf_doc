@@ -61,6 +61,9 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -147,21 +150,20 @@ html_theme_options = {
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
  '**': [
- 'about.html',
  'globaltoc.html',
  'relations.html',
  'sourcelink.html',
  'searchbox.html']
  }
 
-# html_sidebars = {
-#     '**': [
-#         'about.html',
-#         'navigation.html',
-#         'relations.html',
-#         'searchbox.html',
-#     ]
-# }
+html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+    ]
+}
 
 
 
