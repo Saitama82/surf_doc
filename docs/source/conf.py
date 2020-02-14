@@ -79,6 +79,9 @@ html_theme = "classic"
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs':True,
+    'html_logo_height' : '50px',
+  'html_logo_width'  : '50px',
+  'html_logo_margin' : '0px',
     'footerbgcolor': 'white',
     'footertextcolor': 'darkslategrey',
     'sidebarbgcolor': 'white',
@@ -93,7 +96,7 @@ html_theme_options = {
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': '#0000AA'
+    'headbgcolor': '#F6F6F6'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
