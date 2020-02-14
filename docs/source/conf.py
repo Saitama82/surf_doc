@@ -138,6 +138,8 @@ html_theme_options = {
 # "<project> v<release> documentation".
 html_title = "SURF documentation"
 
+html_baseurl = "http://surf.local/"
+
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = '_static/surflogo2.png'
