@@ -11,7 +11,6 @@ The documentation is also available in PDF format: `surf_nemo_1.00.pdf <http://s
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    introduction.rst
    workflow.rst
@@ -21,11 +20,3 @@ The documentation is also available in PDF format: `surf_nemo_1.00.pdf <http://s
    start_guide.rst
    appex_refConf.rst
    appex_surftree.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
