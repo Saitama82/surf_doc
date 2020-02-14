@@ -153,15 +153,6 @@ html_sidebars = {
  'searchbox.html']
  }
 
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'relations.html',
-        'searchbox.html',
-    ]
-}
-
 
 
 
