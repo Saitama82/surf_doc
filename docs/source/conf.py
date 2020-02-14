@@ -83,7 +83,7 @@ html_theme_options = {
     'footertextcolor': 'darkslategrey',
     'sidebarbgcolor': 'white',
     'sidebarbtncolor': 'darkslategrey',
-    'sidebartextcolor': 'darkgreen',
+    'sidebartextcolor': 'black',
     'sidebarlinkcolor':'green',
     'relbarbgcolor': 'darkslategrey',
     'relbartextcolor': 'white',
