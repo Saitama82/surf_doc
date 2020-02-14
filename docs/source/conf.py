@@ -93,7 +93,7 @@ html_theme_options = {
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': 'blue'
+    'headbgcolor': 'lightgrey'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
