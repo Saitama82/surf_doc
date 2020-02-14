@@ -96,7 +96,7 @@ html_theme_options = {
     'headbgcolor': 'white'
 }
 
-html_logo = "graphics/pyspace-logo_small.png"
+html_logo = "surflogo2.png"
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
