@@ -79,7 +79,6 @@ html_theme = "classic"
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs':True,
-    'display_version': True,
     'footerbgcolor': 'white',
     'footertextcolor': 'darkslategrey',
     'sidebarbgcolor': 'white',
@@ -116,6 +115,9 @@ html_logo = '_static/surflogo2.png'
 # pixels large.
 html_favicon = "_static/surflogo2.ico"
 
+# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+# using the given strftime format.
+html_last_updated_fmt = '%b %d, %Y'
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
