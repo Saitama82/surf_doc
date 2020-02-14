@@ -91,7 +91,9 @@ html_theme_options = {
     'relbarlinkcolor': 'white',
     'bgcolor': 'white',
     'textcolor': 'black',
-    'linkcolor': 'darkgreen'
+    'linkcolor': 'darkgreen',
+    'visitedlinkcolor': 'darkgreen',
+    'headbgcolor': 'white',*
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
