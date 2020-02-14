@@ -118,9 +118,9 @@ html_theme = 'python_docs_theme'
 html_theme_options = {
     'collapsiblesidebar': True,
     'issues_url': 'https://docs.python.org/3/bugs.html',
-    'root_name':'Python',
-    'root_url':'https://www.python.org/',
-    'root_icon':'py.png',
+    'root_name':'Surf',
+    'root_url':'http://surf.local/',
+    'root_icon':'surflogo2.png',
     'root_include_title':'True'
 }
 
