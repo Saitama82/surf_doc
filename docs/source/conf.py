@@ -178,10 +178,10 @@ html_last_updated_fmt = '%b %d, %Y'
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
  '**': [
+ 'searchbox.html',
  'globaltoc.html',
  'relations.html',
- 'sourcelink.html',
- 'searchbox.html']
+ 'sourcelink.html']
  }
 
 
