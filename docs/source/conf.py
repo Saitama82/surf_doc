@@ -117,12 +117,17 @@ html_theme = 'python_docs_theme'
 #
 html_theme_options = {
     'collapsiblesidebar': True,
-    'root_include_title': False   # We use the version switcher instead.
+    'issues_url': 'https://docs.python.org/3/bugs.html',
+    'root_name':'Python',
+    'root_url':'https://www.python.org/',
+    'root_icon':'py.png',
+    'root_include_title':'True'
 }
 
 
-# Custom sidebar templates, filenames relative to this file.
 
+
+# Custom sidebar templates, filenames relative to this file.
 html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
 
 
