@@ -144,8 +144,6 @@ html_baseurl = "http://surf.local/"
 # of the sidebar.
 html_logo = '_static/surflogo2.png'
 
-html_use_index = True
-
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
