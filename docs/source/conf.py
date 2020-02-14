@@ -41,6 +41,7 @@ extensions.append('sphinx.ext.intersphinx')
 extensions.append('sphinx.ext.mathjax')
 extensions.append('sphinx.ext.viewcode')
 extensions.append('sphinx.ext.graphviz')
+extensions.append('sphinx.ext.extlinks')
 
 autosummary_generate = True
 
@@ -66,12 +67,36 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 
+#---sphinx-themes-----
 # html_theme = 'alabaster'
 
+#---sphinx-themes-----
 html_theme = "classic"
+# html_theme_options = {
+#     "relbarbgcolor": "black"
+# }
+
 html_theme_options = {
-    # "rightsidebar": "true",
-    "relbarbgcolor": "black"
+    'collapsiblesidebar': True,
+    'externalrefs':True,
+    'footerbgcolor': 'white',
+    'footertextcolor': 'darkslategrey',
+    'sidebarbgcolor': 'white',
+    'sidebarbtncolor': 'darkslategrey',
+    'sidebartextcolor': 'black',
+    'sidebarlinkcolor':'green',
+    'relbarbgcolor': 'darkslategrey',
+    'relbartextcolor': 'white',
+    'relbarlinkcolor': 'white',
+    'bgcolor': 'white',
+    'textcolor': 'black',
+    'linkcolor': 'darkgreen',
+    'visitedlinkcolor': 'darkgreen',
+    'headbgcolor': '#F6F6F6',
+    'headtextcolor': 'black'
+    # 'headlinkcolor': 'red',
+    # 'codebgcolor': 'red',
+    # 'codetextcolor': 'red'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
@@ -104,11 +129,48 @@ html_theme_options = {
 # headfont (CSS font-family): Font for headings.
 
 
+# The style sheet to use for HTML and HTML Help pages. A file of that name
+# must exist either in Sphinx' static/ path, or in one of the custom paths
+# given in html_static_path.
+#html_style = 'pySPACE.css'
+
+# The name for this set of Sphinx documents.  If None, it defaults to
+# "<project> v<release> documentation".
+html_title = "SURF documentation"
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+html_logo = '_static/surflogo2.png'
+
+html_use_index = True
+
+
+# The name of an image file (within the static path) to use as favicon of the
+# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+# pixels large.
+html_favicon = "_static/surflogo2.ico"
+
+# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+# using the given strftime format.
+html_last_updated_fmt = '%b %d, %Y'
 
 
 
 
-
+# #---sphinx-themes-----
+# html_theme = 'python_docs_theme'
+#
+# # Theme options are theme-specific and customize the look and feel of a theme
+# # further.  For a list of options available for each theme, see the
+# # documentation.
+# #
+# html_theme_options = {
+#     'collapsiblesidebar': True,
+#     'root_name':'Surf',
+#     'root_url':'http://surf.local/',
+#     'root_icon':'surflogo2.png',
+#     'root_include_title':'True'
+# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -116,5 +178,13 @@ html_theme_options = {
 # html_static_path = ['_static']
 html_static_path = []
 
-
 extensions.append('sphinxcontrib.versioning.sphinx_')
+
+# Custom sidebar templates, filenames relative to this file.
+html_sidebars = {
+ '**': [
+ # 'sourcelink.html',
+ 'searchbox.html',
+ 'globaltoc.html',
+ 'relations.html']
+ }
