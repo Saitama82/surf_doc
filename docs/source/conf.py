@@ -140,9 +140,9 @@ html_title = "SURF documentation"
 html_logo = '_static/surflogo2.png'
 
 
-html_logo_height = '50px',
-html_logo_width  = '50px',
-html_logo_margin = '0px',
+html_logo_height = '20px'
+html_logo_width  = '20px'
+html_logo_margin = '0px'
 
 
 # The name of an image file (within the static path) to use as favicon of the
