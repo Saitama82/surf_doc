@@ -97,7 +97,7 @@ html_theme_options = {
 }
 
 html_title = "pySPACE documentation"
-html_logo = "surflogo2.png"
+html_logo = '_static/surflogo2.png'
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
