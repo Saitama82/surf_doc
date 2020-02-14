@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Work-Flow of SURF-NEMO platform &#8212; SURF documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/banner.css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Configuration File: Preprocessing sections" href="userConf_pre.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="userConf_pre.html" title="User Configuration File: Preprocessing sections"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SURF documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="work-flow-of-surf-nemo-platform">
+<span id="workflow"></span><h1>Work-Flow of SURF-NEMO platform<a class="headerlink" href="#work-flow-of-surf-nemo-platform" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="id1">
+<span id="fig-main"></span><a class="reference internal image-reference" href="_images/work_flow_SURF_S.png"><img alt="_images/work_flow_SURF_S.png" src="_images/work_flow_SURF_S.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Work-flow of the Relocatable SURF-NEMO platform.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The schematic work-flow diagrams in figure <a class="reference internal" href="#fig-main"><span class="std std-numref">Fig. 1</span></a> shown the steps executed by the SURF-NEMO
+numerical platform. In the up-to-date version release, the steps can be grouped as follows:</p>
+<ol class="arabic simple">
+<li><p>The <strong>initialization</strong>: the user has to specify the value of the input simulation parameters for the ocean model in the configuration file (horizontal and vertical grids, subgrid scale parameterizations, etc.) for the specific experiment he wants carried out.</p></li>
+<li><p>The <strong>access and download of the input datasets</strong>: it is an automatic step where the input datasets for the selected period of simulation are downloaded from a remote or local data repositories as specify in the configuration file. The input data are the bathymetry, the coastline, the atmospheric forcing and the coarse resolution parent ocean model for the initial and lateral boundary condition datasets.</p></li>
+<li><p>The <strong>spatial numerical grid generation</strong>: it is an automatic step which will generate the horizontal and vertical grid for the nested model.</p></li>
+<li><p>The <strong>input data regridding</strong>: it is an automatic step, which generates the bottom topography, surface forcing, initial and open lateral boundary conditions datasets on the child grid.</p></li>
+<li><p>The <strong>Forecast</strong>: it is another automatic step, where the NEMO ocean model is numerical integration and produces the final outputs</p></li>
+<li><p>The <strong>Post-processing</strong>: this step considers the visualisation and analysis procedures of the forecast and it can be activated after the run execution (i.e. compare parent/child fields, compare the simulation results with insitu or satellite datasets and convert datasets).</p></li>
+</ol>
+<div class="figure align-default" id="id2">
+<span id="fig-workflow"></span><a class="reference internal image-reference" href="_images/work_flow.png"><img alt="_images/work_flow.png" src="_images/work_flow.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Graphical calling function flow of the Relocatable SURF-NEMO platform.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The graphical calling function flow (Figure <a class="reference internal" href="#fig-workflow"><span class="std std-numref">Fig. 2</span></a>) is a representation, using graph notation, of all paths that might be traversed through a program during its execution</p>
+<p>We can identify 4 macrotask: Child meshmask generation, Atmospheric data regridding, Ocean IC data regridding, Ocean BC data regridding and OBC data extraction and Ocean Model simulation.</p>
+<p>The dependency graph is show in Fugure <a class="reference internal" href="#fig-workflow"><span class="std std-numref">Fig. 2</span></a>. The dependency graph is a directed graph representing dependencies of several objects towards each other….</p>
+<p>These figures provide helpful reference for reading this chapter where we will describe in detail all the block executed
+during the program flow…</p>
+<div class="section" id="setting-up-the-input-model-parameters">
+<h2>Setting up the input model parameters<a class="headerlink" href="#setting-up-the-input-model-parameters" title="Permalink to this headline">¶</a></h2>
+<p>specify the value of the input simulation parameters for the ocean model in the configuration file</p>
+<p>The first phase execute by each macrotask consists in setting up the input model parameters.
+The input parameters are described in chapter 3 and appendix A.
+The model parameters are specifyin the configuration file (json format) and the procedures executed are <code class="docutils literal notranslate"><span class="pre">read_inJsonFree</span></code> and <code class="docutils literal notranslate"><span class="pre">read_inJsonFixed</span></code>
+to define respectively the user-free and fixed input parameters required to execute the NEMO model
+and all the pre and post-processing tasks.
+In this phase the procedure <code class="docutils literal notranslate"><span class="pre">set_pathData</span></code> <code class="docutils literal notranslate"><span class="pre">set_fileData</span></code> are also call to define all the paths and files name
+used by the program for the specific experiment to carried out.</p>
+</div>
+<div class="section" id="computational-grid-generation">
+<h2>Computational grid generation<a class="headerlink" href="#computational-grid-generation" title="Permalink to this headline">¶</a></h2>
+<p>After the model configuration phase, the generation of the child grid is performed. The ocean NEMO
+model uses the Arakawa C grid for the spatial discretization with state variables defined on the staggered
+grid illustrated in Figure 2.2a. In the C grid the scalar quantities (temperature T, salinity S, pressure p,
+density <span class="math notranslate nohighlight">\(\rho\)</span>) are defined at the center of each grid volume, the velocity field components (zonal u, meridional
+v and vertical w) are shifted by half a grid width in their respective direction so that they are defined at
+the edges of the grid volumes and the relative vorticity (<span class="math notranslate nohighlight">\(\rho\)</span>) and planetary vorticity (<span class="math notranslate nohighlight">\(\rho\)</span>) are defined in the
+center of each vertical edge. The main advantage of the C grid is that the pressure and convergence terms
+are computed over a distance x, which is half of that in the unstaggered grid indicating a doubling of the
+resolution compared to the unstuggered grid. The procedures executed in this phase are:</p>
+<p>Access and download of the bathymetry and costline datasets.</p>
+<ul class="simple">
+<li><p>Manipulation of the input bathymetry according the input configuration parameters.</p></li>
+<li><p>Execution of the NEMO-MESH code to generate the child 2D-mesh.</p></li>
+<li><p>Spatial interpolation of the bathymetric dataset on the generated child grid.</p></li>
+<li><p>Execution of the NEMO-MESH code to generate the 3D-meshmask.</p></li>
+</ul>
+<div class="section" id="access-and-download-the-bathymetry-and-costline-datasets">
+<h3>Access and download the bathymetry and costline datasets<a class="headerlink" href="#access-and-download-the-bathymetry-and-costline-datasets" title="Permalink to this headline">¶</a></h3>
+<p>A procedure for checking if the necesary input dataset are present in the experiment directory experiments/IDEXP/data/
+is executed. If some of the requested data are not present then the procedures downlCoastlineInfile,</p>
+</div>
+<div class="section" id="manipulating-bathymetry-and-shapiro-filter">
+<h3>Manipulating bathymetry and shapiro filter<a class="headerlink" href="#manipulating-bathymetry-and-shapiro-filter" title="Permalink to this headline">¶</a></h3>
+<p>Manipulating bathymetry … The Shapiro filter (Shapiro 1970, 1975) is a high order horizontal filter that
+efficiently remove small scale grid noise without affecting the physical structures of a field. It is applied at
+the end of the time step on both velocity and tracer fields….</p>
+</div>
+<div class="section" id="horizontal-grid">
+<h3>Horizontal grid<a class="headerlink" href="#horizontal-grid" title="Permalink to this headline">¶</a></h3>
+<p>The horizontal grid generation is managed by the NEMO-MESH code. The type of grid used in SURF
+is a rectangular (or latitude-longitude) grid in a spherical coordinate system (x,x). The horizontal grid
+(expressed in degrees) is generated by specifying the number of points x and x respectively in zonal and
+meridional direction, the respective grid sizes x and x (in degrees) and the longitude and latidudine (x,x)xx
+of the first row and first column of T grid. On the xx plane, the location of the T point of the grid are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda_{i,j} = \lambda_{11} + (i-1) \Delta \lambda   \hspace{0.5cm} \mbox{with} \hspace{0.2cm} i=1.....n_\lambda \\
+\varphi_{i,j} = \varphi_{11} + (j-1) \Delta \varphi   \hspace{0.5cm} \mbox{with} \hspace{0.2cm} j=1.....n_\varphi\end{split}\]</div>
+<p>The u, v, f point of the grid are shifted by half a grid width in zonal e/o meridional direction as indicated
+in figure 2.2a.</p>
+</div>
+<div class="section" id="vertical-grid">
+<h3>Vertical grid<a class="headerlink" href="#vertical-grid" title="Permalink to this headline">¶</a></h3>
+<p>The vertical grid generation is managed by the NEMO-MESH code. The type of verical grid used in SURF
+corresponds to a z-coordinate vertical levels with partial bottom cell representation of the bathymetry. After
+the bathymetry z = H(x,x) and the number of levels nz have been specified, the vertical location of w- and
+t-levels (expressed in meters) is defined, except in the bottom layer, from the following analytic expression:</p>
+<div class="math notranslate nohighlight">
+\[z(k) = h_{sur} - h_0 k - h_1 log [cosh (( k - h_{th}) h_{cr})]\]</div>
+<p>where the coefficients <span class="math notranslate nohighlight">\(h_{sur}\)</span>, <span class="math notranslate nohighlight">\(h_0\)</span>, <span class="math notranslate nohighlight">\(h_1\)</span>, <span class="math notranslate nohighlight">\(h_{th}\)</span> and <span class="math notranslate nohighlight">\(h_{cr}\)</span> are parameters to be specified.
+<span class="math notranslate nohighlight">\(h_{cr}\)</span> represents the stretching factor of the grid and <span class="math notranslate nohighlight">\(h_{th}\)</span> is approximately the model level at which
+maximum stretching occurs.
+This expression allow to define a stretched z-coordinate vertical levels which are smoothly distributed along the water column, with appropriate thinning designed to better resolve the surface and intermediate layers.
+With a partial cell parameterization, the thickness of the bottom layer is allowed to vary as a function of geographical location <span class="math notranslate nohighlight">\((x,y)_{i,j}\)</span> to allow a better representation of the real bathymetry.</p>
+</div>
+</div>
+<div class="section" id="input-data-regridding">
+<h2>Input data Regridding<a class="headerlink" href="#input-data-regridding" title="Permalink to this headline">¶</a></h2>
+<p>Regridding, also called remapping, is the process of changing the grid (from a source grid, to a destination
+grid) underneath field data values while preserving the qualities of the original data. We describe in this
+section the spatial extrapolation and interpolation procedure adopt in SURF to remap the input fields on
+the child grid. This phase will generate the surface forcing, initial and open lateral boundary conditions
+datasets on the child grid. The procedures executed in this phase are:</p>
+<ul class="simple">
+<li><p>Access and download of the input datasets</p></li>
+<li><p>Rotation the vector fields (if needed)</p></li>
+<li><p>Extrapolation of the input datasets</p></li>
+<li><p>Interpolation</p></li>
+<li><p>Lateral Open Boundary Condition datasets generation</p></li>
+</ul>
+<div class="section" id="access-and-download-of-the-input-datasets">
+<h3>Access and download of the input datasets<a class="headerlink" href="#access-and-download-of-the-input-datasets" title="Permalink to this headline">¶</a></h3>
+<p>A procedure for checking if the necesary input dataset are present in the experiment directory experiments/IDEXP/data/
+is executed. If some of the requested data are not present then the procedures downlAtmSrc, downlOceICSrc
+and downlOceBCSrc are automatically executed in order to download, respectively, the costline, the bathymetry,
+the atmospheric forcing and the initial and lateral boundary condition datasets for the selected period of
+the simulation from a remote or local data repositories as specify in the configuration Json file</p>
+</div>
+<div class="section" id="rotation-of-horizontal-velocity-u-v">
+<h3>Rotation of horizontal velocity u, v<a class="headerlink" href="#rotation-of-horizontal-velocity-u-v" title="Permalink to this headline">¶</a></h3>
+<p>When the parent coarse resolution model is defined on a rotated or a curvilinear grid (e.g. the global
+GOFS16 model defined on a tripolar grid fig. 2.2a) one more step is needed in order to interpolate the
+horizontal velocity fields. In an ocean model with ’distorted’ grid, the velocity vectors are given according
+the direction of grid lines (black arrow in fig 2.2b). A rotation in latitudinal and longitudinal direction of
+the velocity components has to be applied to turn the vectors from the local system (x,x) to a geographical
+system (lon,lat), so that U gives the zonal component (W-E direction) and V the meridional component (S-N
+direction) of the velocity vector. Therefore, to transform between (x,x) coordinates to (lon,lat) coordinates,
+vectors need to be rotated according to</p>
+<p>The rotation angle <span class="math notranslate nohighlight">\(\alpha(i,j)\)</span> is computed in SURF using the sosie package. For parent model with rotate
+rectangles grid the angle  is near constant. For parent model with curvilinear tripolar grids (as in GOFS16
+model) the angle will vary through each grid cell. (PROCEDURE STILL TO BE VALIDATE.)</p>
+</div>
+<div class="section" id="extrapolation-methods">
+<h3>Extrapolation methods<a class="headerlink" href="#extrapolation-methods" title="Permalink to this headline">¶</a></h3>
+<p>The extrapolation procedure adopt in SURF is the so-called sea-over-land (SOL) procedure that provides us
+with the ocean field values on the areas near the coastline where the parent model solutions are not defined.
+The SOL procedure extrapolates iteratively the ocean quantities on the land grid-points, so that it is possible
+to interpolate these quantities on the child grid. This applies also to atmospheric fields, taking into account
+the atmospheric Land-Sea Mask, in order to avoid land contaminations near the land-sea boundaries.</p>
+<p>The Sea Over Land procedure seaOverLand is applied to the Course resolution ocean fields in order to
+extrapolate the salinity, temperature, sea surface height and current fields to the land points. This will
+allow to define (by interpolation) the Ocen fields in the nested-grid points near to the coast. The some
+procedure is adopted for the atmospheric forcing fields, taking into account the Atm Land-Sea Mask, in
+order to do not have contamination from the Atm fields on the Land to the Sea points.</p>
+</div>
+<div class="section" id="interpolation-methods">
+<h3>Interpolation methods<a class="headerlink" href="#interpolation-methods" title="Permalink to this headline">¶</a></h3>
+<p>The extrapolation procedure described in the previous section provides the input data for the interpolator.
+The procedures used are based on the Spherical Coordinate Remapping and Interpolation Package (SCRIP)
+code. SCRIP is a software package which computes addresses and weights for remapping and interpolating
+fields between grids in spherical coordinates. The package should work for any grid on the surface of a
+sphere. SCRIP currently supports five remapping options:</p>
+<ul class="simple">
+<li><p>Conservative remapping: First- and second-order conservative remapping as described in Jones (1999, Monthly Weather Review, 127, 2204-2210).</p></li>
+<li><p>Bilinear interpolation: Slightly generalized to use a local bilinear approximation (only logically rectangular grids).</p></li>
+<li><p>Bicubic interpolation: Similarly generalized (only logically-rectangular grids).</p></li>
+<li><p>Distance-weighted averaging: Inverse-distance-weighted average of a user-specified number of nearest neighbor values.</p></li>
+<li><p>Particle remapping: A conservative particle (Monte-Carlo-like) remapping scheme</p></li>
+</ul>
+<p>The source code can be found in the directory nemo/NEMOGCM/TOOLS/WEIGHTS.</p>
+<p>Regridding can be broken into two stages. The first stage is generation of an interpolation weight matrix
+that describes how points in the source grid contribute to points in the destination grid. The second stage is
+the multiplication of values on the source grid by the interpolation weight matrix to produce the appropriate
+values on the destination grid.</p>
+<p>The SCRIP spatial interpolation procedure is applied of the input fields into the generated the bathymetry,
+atmosferic forcing and initial and boundary conditions files necessary to run the NEMO code. This procedure
+generates the files xxxxxxxx which are stored in the directory experiments/IDEXP/.</p>
+</div>
+<div class="section" id="lateral-open-boundary-condition-datasets">
+<h3>Lateral Open Boundary Condition datasets<a class="headerlink" href="#lateral-open-boundary-condition-datasets" title="Permalink to this headline">¶</a></h3>
+<p>The implementation of the lateral open boundary condition for the selected nested-domain is done using the
+BDY module of NEMO. Two different numerical algorithms to treat open boundary conditions are adopted
+depending on the prognostic simulated variables. For the barotropic velocities the Flather scheme (Oddo and
+Pinardi, 2008) is used, while for baroclinic velocities, active tracers and sea surface height we consider the
+flow relaxation scheme (Engerdahl, 1995). In our formulation we provide external data along straight open
+boundary lines and the relaxation area is equal to one internal grid point. As the parent coarse resolution
+Ocean model provides only the total velocity field, the interpolated total velocity field into the child grid
+has been split into barotropic and baroclinic components. In order to preserve the total transport after the
+interpolation an integral constraint method is imposed</p>
+<p>This process involves the following steps: (1) the definition of the open boundary geometry (for each of the
+T,U and V grids) and physical fields (active tracers, sea-surface height, barotropic and baroclinic velocities)
+at the open boundary points using, respectively, the procedures geometry_bdy and fields_bdy, (2) the
+writing of these data arrays to the files necessary to run the NEMO code. The algorithm used for the
+different fields are: the Flather radiation scheme for the barotropic velocities and the sea surface height and
+the Flow relaxation scheme for the baroclinic velocities and active tracers. The generated files will be stored
+in the directory experiments/NOMEEXP.</p>
+</div>
+</div>
+<div class="section" id="model-run">
+<h2>Model run<a class="headerlink" href="#model-run" title="Permalink to this headline">¶</a></h2>
+<p>Finally, the SURF platform proceeds with numerical integration of NEMO. During the execution of the
+main program, output files will be continuously updated given the fixed output frequency.</p>
+<p>You can also examine how far the run has advanced using the command grep to the NEMO logfile, which
+is a text file NEMO produces and in which the time step is written.</p>
+<p>After the model has finished, , something like this will be written to the terminal:</p>
+<p>The output files will be stored in the directory where the user is running the model.</p>
+</div>
+<div class="section" id="post-processing">
+<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
+<p>This step considers the visualisation and analysis procedures of the forecast and it can be activated after
+the run execution. The user can visualize the input/output datasets, compare parent/child fields, compare
+the simulation results with insitu or satellite datasets and convert datasets</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Work-Flow of SURF-NEMO platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-input-model-parameters">Setting up the input model parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computational-grid-generation">Computational grid generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data-regridding">Input data Regridding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-run">Model run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#post-processing">Post-processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="userConf_pre.html">User Configuration File: Preprocessing sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userConf_post.html">User Configuration File: Postprocessing sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_datasets.html">Input/Output Model Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start_guide.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appex_refConf.html">Appendix Reference Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appex_surftree.html">Appendix Structure of the SURF directory</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="userConf_pre.html"
+                        title="next chapter">User Configuration File: Preprocessing sections</a></p>
+<h3>Versions</h3>
+<ul>
+    <li><a href="../surf_nemo_1.0/workflow.html">surf_nemo_1.0</a></li>
+    <li><a href="workflow.html">surf_nemo_1.1</a></li>
+</ul>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="userConf_pre.html" title="User Configuration File: Preprocessing sections"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SURF documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Francesco.
+      Last updated on Feb 13, 2020.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.
+    </div>
+  </body>
+</html>

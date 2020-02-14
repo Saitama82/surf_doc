@@ -8,6 +8,7 @@ Welcome to surf's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
    introduction.rst
    workflow.rst
@@ -17,3 +18,12 @@ Welcome to surf's documentation!
    start_guide.rst
    appex_refConf.rst
    appex_surftree.rst
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
