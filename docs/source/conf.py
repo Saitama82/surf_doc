@@ -81,7 +81,7 @@ html_theme_options = {
     'externalrefs':True,
     'footerbgcolor': 'white',
     'footertextcolor': 'darkslategrey',
-    'sidebarbgcolor': 'white',
+    'sidebarbgcolor': '#fcfcfc',
     'sidebarbtncolor': 'darkslategrey',
     'sidebartextcolor': 'black',
     'sidebarlinkcolor':'green',
@@ -92,7 +92,7 @@ html_theme_options = {
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': '#F6F6F6',
+    'headbgcolor': '#fcfcfc',
     'headtextcolor': 'black'
     # 'headlinkcolor': 'red',
     # 'codebgcolor': 'red',
@@ -138,11 +138,11 @@ html_theme_options = {
 # "<project> v<release> documentation".
 html_title = "SURF documentation"
 
+html_baseurl = "http://surf.local/"
+
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = '_static/surflogo2.png'
-
-html_use_index = True
 
 
 # The name of an image file (within the static path) to use as favicon of the
@@ -184,6 +184,7 @@ extensions.append('sphinxcontrib.versioning.sphinx_')
 html_sidebars = {
  '**': [
  # 'sourcelink.html',
+ 'versions.html',
  'searchbox.html',
  'globaltoc.html',
  'relations.html']
