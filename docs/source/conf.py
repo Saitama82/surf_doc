@@ -142,9 +142,7 @@ html_title = "SURF documentation"
 # of the sidebar.
 html_logo = '_static/surflogo2.png'
 
-html_logo_height = '20px'
-html_logo_width  = '20px'
-html_logo_margin = '0px'
+html_use_index = True
 
 
 # The name of an image file (within the static path) to use as favicon of the
