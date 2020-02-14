@@ -61,9 +61,6 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -98,6 +95,8 @@ html_theme_options = {
     'visitedlinkcolor': 'darkgreen',
     'headbgcolor': 'white'
 }
+
+html_logo = "graphics/pyspace-logo_small.png"
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
