@@ -184,8 +184,8 @@ extensions.append('sphinxcontrib.versioning.sphinx_')
 html_sidebars = {
  '**': [
  # 'sourcelink.html',
+ 'versions.html',
  'searchbox.html',
  'globaltoc.html',
- 'versions.html',
  'relations.html']
  }
