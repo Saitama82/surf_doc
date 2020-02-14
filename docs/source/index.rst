@@ -1,13 +1,7 @@
-===============
-Welcome to SURF
-===============
-
 Welcome to SURF's documentation!
 =================================
 
-Hedge has a `home page <http://mathema.tician.de/software/hedge>`_
-and (moderately useless)
-`auto-generated reference documentation <http://documen.tician.de/hedge-reference>`_
+SURF has a `home page <http://surf.local/>`_
 
 .. toctree::
    :maxdepth: 2
