@@ -80,8 +80,8 @@ html_theme = "classic"
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs':True,
-    # 'sidebar_span': 6, # 1(min) - 12(max)
-    'footerbgcolor': rgba(51, 153, 255, 0.1)
+    "footerbgcolor": 'white',
+    "footertextcolor ": 'darkslategrey'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
