@@ -87,37 +87,14 @@ html_theme_options = {
     'sidebarlinkcolor':'green',
     'relbarbgcolor': 'darkslategrey',
     'relbartextcolor': 'white',
-    'relbarlinkcolor': 'blue',
+    'relbarlinkcolor': 'white',
     'codebgcolor': 'red',
     'bgcolor': 'white',
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': 'white'
+    'headbgcolor': 'blue'
 }
-
-
-# The style sheet to use for HTML and HTML Help pages. A file of that name
-# must exist either in Sphinx' static/ path, or in one of the custom paths
-# given in html_static_path.
-#html_style = 'pySPACE.css'
-
-# The name for this set of Sphinx documents.  If None, it defaults to
-# "<project> v<release> documentation".
-html_title = "SURF documentation"
-
-# The name of an image file (relative to this directory) to place at the top
-# of the sidebar.
-html_logo = '_static/surflogo2.png'
-
-# The name of an image file (within the static path) to use as favicon of the
-# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
-# pixels large.
-html_favicon = "_static/surflogo2.ico"
-
-# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-# using the given strftime format.
-html_last_updated_fmt = '%b %d, %Y'
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
@@ -147,6 +124,31 @@ html_last_updated_fmt = '%b %d, %Y'
 # codetextcolor (CSS color): Default text color for code blocks, if not set differently by the highlighting style.
 # bodyfont (CSS font-family): Font for normal text.
 # headfont (CSS font-family): Font for headings.
+
+
+# The style sheet to use for HTML and HTML Help pages. A file of that name
+# must exist either in Sphinx' static/ path, or in one of the custom paths
+# given in html_static_path.
+#html_style = 'pySPACE.css'
+
+# The name for this set of Sphinx documents.  If None, it defaults to
+# "<project> v<release> documentation".
+html_title = "SURF documentation"
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+html_logo = '_static/surflogo2.png'
+
+# The name of an image file (within the static path) to use as favicon of the
+# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+# pixels large.
+html_favicon = "_static/surflogo2.ico"
+
+# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+# using the given strftime format.
+html_last_updated_fmt = '%b %d, %Y'
+
+
 
 
 # #---sphinx-themes-----
