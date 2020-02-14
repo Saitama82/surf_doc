@@ -66,13 +66,16 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 
+#---sphinx-themes-----
 # html_theme = 'alabaster'
-# html_theme = 'classic'
-html_theme = "classic"
-html_theme_options = {
-    # "rightsidebar": "true",
-    "relbarbgcolor": "black"
-}
+
+
+
+#---sphinx-themes-----
+# html_theme = "classic"
+# html_theme_options = {
+#     "relbarbgcolor": "black"
+# }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
 #
@@ -104,8 +107,15 @@ html_theme_options = {
 # headfont (CSS font-family): Font for headings.
 
 
+#---sphinx-themes-----
+html_theme = 'python_docs_theme'
 
 
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
+#
+# html_theme_options = {}
 
 
 
