@@ -115,7 +115,10 @@ html_theme = 'python_docs_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'collapsiblesidebar': True,
+    'root_include_title': False   # We use the version switcher instead.
+}
 
 
 
