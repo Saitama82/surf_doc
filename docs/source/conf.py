@@ -88,12 +88,15 @@ html_theme_options = {
     'relbarbgcolor': 'darkslategrey',
     'relbartextcolor': 'white',
     'relbarlinkcolor': 'white',
-    'codebgcolor': 'red',
     'bgcolor': 'white',
     'textcolor': 'black',
     'linkcolor': 'darkgreen',
     'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': '#F6F6F6'
+    'headbgcolor': '#F6F6F6',
+    'headtextcolor': 'red',
+    'headlinkcolor': 'red',
+    'codebgcolor': 'red',
+    'codetextcolor': 'red'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
@@ -175,18 +178,13 @@ html_last_updated_fmt = '%b %d, %Y'
 
 
 # Custom sidebar templates, filenames relative to this file.
-# html_sidebars = {
-#  '**': [
-#  'searchbox.html',
-#  'globaltoc.html',
-#  'relations.html',
-#  'sourcelink.html']
-#  }
-
- html_sidebars = {
-   '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
-   'using/windows': ['windowssidebar.html', 'searchbox.html'],
-}
+html_sidebars = {
+ '**': [
+ 'searchbox.html',
+ 'globaltoc.html',
+ 'relations.html',
+ 'sourcelink.html']
+ }
 
 
 
