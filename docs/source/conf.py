@@ -186,5 +186,6 @@ html_sidebars = {
  # 'sourcelink.html',
  'searchbox.html',
  'globaltoc.html',
+ 'versions.html',
  'relations.html']
  }
