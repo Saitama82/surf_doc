@@ -8,7 +8,6 @@ Welcome to surf's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    introduction.rst
    workflow.rst
@@ -18,8 +17,6 @@ Welcome to surf's documentation!
    start_guide.rst
    appex_refConf.rst
    appex_surftree.rst
-
-   The :github:`_url_` url is aliased to :github:`GitHub` and also to :github:`this`
 
 
 

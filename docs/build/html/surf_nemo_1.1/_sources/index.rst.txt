@@ -19,8 +19,6 @@ Welcome to surf's documentation!
    appex_refConf.rst
    appex_surftree.rst
 
-   The :github:`_url_` url is aliased to :github:`GitHub` and also to :github:`this`
-
 
 
 Indices and tables
