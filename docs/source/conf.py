@@ -15,15 +15,30 @@ import sys
 
 sys.path.insert(0, os.path.abspath('.'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'Structured and Unstructured grid Relocatable ocean platform for Forecasting (SURF)'
 copyright = '2020, Francesco'
 author = 'Francesco Trotta, Nadia Pinardi'
 
-# The full version, including alpha/beta/rc tags
-release = 'V1.1'
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+# The short X.Y version.
+version = '1.01'
+# The full version, including alpha/beta/rc tags.
+release = '1.01'
+
+version_nemo = '1.01'
+version_vm = '2.04'
+version_data = '1.01'
+
+rst_epilog = """
+.. |version_nemo| replace:: {versionnemo}
+.. |version_vm| replace:: {versionvm}
+.. |version_data| replace:: {versiondata}
+""".format(versionnemo = version_nemo,versionvm = version_vm,versiondata = version_data)
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -37,11 +52,13 @@ extensions = []
 extensions.append('sphinx.ext.todo')
 extensions.append('sphinx.ext.autodoc')
 #extensions.append('sphinx.ext.autosummary')
+extensions.append('sphinx.ext.ifconfig')
 extensions.append('sphinx.ext.intersphinx')
 extensions.append('sphinx.ext.mathjax')
 extensions.append('sphinx.ext.viewcode')
 extensions.append('sphinx.ext.graphviz')
 extensions.append('sphinx.ext.extlinks')
+extensions.append('sphinx.ext.inheritance_diagram')
 
 autosummary_generate = True
 
@@ -72,31 +89,32 @@ exclude_patterns = []
 
 #---sphinx-themes-----
 html_theme = "classic"
-# html_theme_options = {
-#     "relbarbgcolor": "black"
-# }
+
+html_theme_path = ["/Users/franz/anaconda3/pkgs/sphinx-1.8.5-py37_0/lib/python3.7/site-packages/sphinx/themes/"]
 
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs':True,
     'footerbgcolor': 'white',
-    'footertextcolor': 'darkslategrey',
+    'footertextcolor': 'grey',
     'sidebarbgcolor': '#fcfcfc',
-    'sidebarbtncolor': 'darkslategrey',
+    'sidebarbtncolor': 'darkgray',
     'sidebartextcolor': 'black',
-    'sidebarlinkcolor':'green',
-    'relbarbgcolor': 'darkslategrey',
+    'sidebarlinkcolor':'#A2881D', #~dark yellow
+    'relbarbgcolor': 'darkgray',
     'relbartextcolor': 'white',
     'relbarlinkcolor': 'white',
     'bgcolor': 'white',
     'textcolor': 'black',
-    'linkcolor': 'darkgreen',
-    'visitedlinkcolor': 'darkgreen',
-    'headbgcolor': '#fcfcfc',
-    'headtextcolor': 'black'
-    # 'headlinkcolor': 'red',
-    # 'codebgcolor': 'red',
-    # 'codetextcolor': 'red'
+    'linkcolor': '#A2881D', #~dark yellow
+    'visitedlinkcolor': '#A2881D', #~dark yellow
+    'headbgcolor': 'white',
+    'headtextcolor': 'black',
+    'headlinkcolor': 'red',
+    'codebgcolor': '#f8f8f8',
+    'codetextcolor': 'black',
+    'bodyfont':'Verdana', #Arial, Helvetica and Verdana
+    'headfont':'Verdana'
 }
 
 # classic – This is the classic theme, which looks like the Python 2 documentation. It can be customized via these options:
@@ -136,7 +154,7 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "SURF documentation"
+# html_title = "SURF documentation"
 
 html_baseurl = "http://surf.local/"
 
