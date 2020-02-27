@@ -168,8 +168,8 @@ html_short_title = "SURF v"+release+" documentation"
 
 #The URL which points to the root of the HTML documentation.
 #It is used to indicate the location of document
-# html_baseurl = "https://surf.sincem.unibo.it/docs/build/html/"
-html_baseurl = "http://surf.local/docs/build/html/"
+html_baseurl = "https://surf.sincem.unibo.it/docs/build/html/"
+# html_baseurl = "http://surf.local/docs/build/html/"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
