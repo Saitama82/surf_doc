@@ -59,10 +59,14 @@ extensions.append('sphinx.ext.viewcode')
 extensions.append('sphinx.ext.graphviz')
 extensions.append('sphinx.ext.extlinks')
 extensions.append('sphinx.ext.inheritance_diagram')
+extensions.append('sphinxcontrib.fulltoc')
 
 autosummary_generate = True
 
-# Create numbers on figures with captions
+def setup(app):
+    app.add_config_value('releaselevel', '', True)
+
+# Enable numbering of figures and tables
 numfig = True
 
 # numfig:
@@ -93,7 +97,10 @@ html_theme = "classic"
 html_theme_path = ["/Users/franz/anaconda3/pkgs/sphinx-1.8.5-py37_0/lib/python3.7/site-packages/sphinx/themes/"]
 
 html_theme_options = {
+    'stickysidebar': True,
+    'sidebarwidth': 310,
     'collapsiblesidebar': True,
+    'navigation_with_keys': True,
     'externalrefs':True,
     'footerbgcolor': 'white',
     'footertextcolor': 'grey',
@@ -154,9 +161,15 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-# html_title = "SURF documentation"
+# html_title = "SURF v<release> documentation"
 
-html_baseurl = "http://surf.local/"
+#A shorter title for the navigation bar. Default is the same as html_title.
+html_short_title = "SURF v"+release+" documentation"
+
+#The URL which points to the root of the HTML documentation.
+#It is used to indicate the location of document
+# html_baseurl = "https://surf.sincem.unibo.it/docs/build/html/"
+html_baseurl = "http://surf.local/docs/build/html/"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -170,7 +183,7 @@ html_favicon = "_static/surflogo2.ico"
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-html_last_updated_fmt = '%b %d, %Y'
+# html_last_updated_fmt = '%b %d, %Y'
 
 
 

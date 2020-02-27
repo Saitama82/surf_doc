@@ -11,6 +11,7 @@ Please read the `release notes <http://surf.local/download.php>`_ to see what ha
 The documentation is also available in PDF format: `surf_nemo_1.01.pdf <http://surf.local/repository/documentation/surf_v1_00.pdf>`_
 
 .. toctree::
+   :numbered: 3
    :maxdepth: 2
 
    introduction.rst
