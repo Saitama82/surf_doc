@@ -20,7 +20,7 @@ A more specific scientific background is required if for example the user intend
 with different turbulence or numerical schemes or with alternative settings of model parameters.
 It is then recommended to read first the NEMO Model Description document and relative article.
 
-See also the video tutorials available online `here <http://surf.local/tutorial.php>`_
+See also the video tutorials available online `here <https://surf.sincem.unibo.it/tutorial.php>`_
 explain basic features of the SURF platform and designed for beginners who want to learn SURF step by step.
 
 Download and Install SURF Virtual Machine
@@ -68,7 +68,7 @@ explain how to download, install and configure the SURF VM in Oracle VirtualBox
    .. container:: leftside
 
       * Download the current version (v\ |version_vm|) of the SURF virtual machine from
-        `SURF web-page <http://surf.local/download.php>`_ and extract it in your VirtualBox directory
+        `SURF web-page <https://surf.sincem.unibo.it/download.php>`_ and extract it in your VirtualBox directory
         (``/Users/USERNAME/VirtualBox VM/`` for Mac user).
         tar -zxvf surf\_\ |version_vm|.tar.gz
 
