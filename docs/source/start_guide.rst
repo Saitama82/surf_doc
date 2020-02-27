@@ -1,15 +1,24 @@
 .. _start_guide:
 
+
+.. |clearfloat|  raw:: html
+
+   <div class="clearer"></div>
+
 *****************
 Quick Start Guide
 *****************
 
 This chapter describes how you can quickly get started with the SURF platform. We show how to download
-and install the SURF Virtual Machine and all the SURF packages. We describe how to compile the source code included.
-We present how to execute a case study experiment and view the results.
-Finally we show how the template user-configuration setup file can be modified in order to make a new
-different experiment or add a further higher resolution child model downscaling from the existing nested
-model.
+and install the SURF Virtual Machine and all the SURF packages. We describe how to compile (if needed) the source codes.
+We present how to execute a case study (template) experiment in the Gulf of Taranto and view the results.
+Finally we show how the user-configuration file of a template experiment can be modified in order to
+execute and analysis new experiments.
+The template experiment make it easier to run the model without a detailed knowledge of the underlying
+scientific basis. Only a limited number of default values need to be changed for most applications.
+A more specific scientific background is required if for example the user intends to perform experiments
+with different turbulence or numerical schemes or with alternative settings of model parameters.
+It is then recommended to read first the NEMO Model Description document and relative article.
 
 See also the video tutorials available online `here <http://surf.local/tutorial.php>`_
 explain basic features of the SURF platform and designed for beginners who want to learn SURF step by step.
@@ -35,64 +44,80 @@ explain how to download, install and configure the SURF VM in Oracle VirtualBox
 
 
 
+.. container:: twocol
 
-.. list-table::
+   .. container:: leftside
 
- * - Navigate to https://www.virtualbox.org/ and click on *Downloads* button.
-     Choose the ``VirtualBox base package`` (version >=6) corresponding to the host
-     operating system of your computer (i.e. Windows, Mac, Linux) and the additional
-     ``Extension Packs`` which extend the functionality of the VirtualBox base package.
-     Save the corresponding files on your computer then execute them and follow the
-     installation instructions. Please install the same version extension pack
-     as your installed version of VirtualBox.
+      * Navigate to https://www.virtualbox.org/ and click on *Downloads* button.
+        Choose the ``VirtualBox base package`` (version >=6) corresponding to the host
+        operating system of your computer (i.e. Windows, Mac, Linux) and the additional
+        ``Extension Packs`` which extend the functionality of the VirtualBox base package.
+        Save the corresponding files on your computer then execute them and follow the
+        installation instructions. Please install the same version extension pack
+        as your installed version of VirtualBox.
 
-   - .. _fig-VM_install0:
-     .. figure:: _static/figure/fig_install/VM_install0.png
+   .. container:: rightside
 
-        Downloads Virtual Box
+      .. _fig-VM_install0:
+      .. figure:: _static/figure/fig_install/VM_install0.png
+         :width: 500px
 
- * - Download the current version (v\ |version_vm|) of the SURF virtual machine from
-     `SURF web-page <http://surf.local/download.php>`_ and extract it in your VirtualBox directory
-     (``/Users/USERNAME/VirtualBox VM/`` for Mac user).
-     tar -zxvf surf\_\ |version_vm|.tar.gz
+         Downloads Virtual Box
 
-     .. parsed-literal::
 
+   .. container:: leftside
+
+      * Download the current version (v\ |version_vm|) of the SURF virtual machine from
+        `SURF web-page <http://surf.local/download.php>`_ and extract it in your VirtualBox directory
+        (``/Users/USERNAME/VirtualBox VM/`` for Mac user).
         tar -zxvf surf\_\ |version_vm|.tar.gz
 
-     You need to create an account and log in to have access to downloads.
+        .. parsed-literal::
 
-   - .. _fig-VM_install1:
-     .. figure:: _static/figure/fig_install/VM_install1.png
+           tar -zxvf surf\_\ |version_vm|.tar.gz
 
-        Downloads SURF Virtual Machine
+        You need to create an account and log in to have access to downloads.
 
+   .. container:: rightside
 
- * - Open the VirtualBox software. From the menu, choose *Machine* > *add* and navigate to the .vbox file.
-     This will add the Virtual Machine ``surf`` to the list of Virtual Machine
+      .. _fig-VM_install1:
+      .. figure:: _static/figure/fig_install/VM_install1.png
+         :width: 500px
 
-
-   - .. _fig-VM_install2:
-     .. figure:: _static/figure/fig_install/VM_install2.png
-
-        Add SURF-VM in VirtualBox
+         Downloads SURF Virtual Machine
 
 
- * - To start the VM surf, you can double-click on its entry in the machines manager or select its entry
-     and press the *Start* button on the top. A window opens.
-     The VM Login should look like the right figure. In the login dialog box enter:
+   .. container:: leftside
 
-     * *surf* as login
-     * *surf2019* as an initial password
+      * Open the VirtualBox software. From the menu, choose *Machine* > *add* and navigate to the .vbox file.
+        This will add the Virtual Machine ``surf`` to the list of Virtual Machine
 
-     You are now logged into the VM.
+   .. container:: rightside
 
-   - .. _fig-VM_install3:
-     .. figure:: _static/figure/fig_install/VM_install3.png
+      .. _fig-VM_install2:
+      .. figure:: _static/figure/fig_install/VM_install2.png
+         :width: 500px
 
-        Add SURF-VM in VirtualBox
+         Add SURF-VM in VirtualBox
 
+   .. container:: leftside
 
+      * To start the VM surf, you can double-click on its entry in the machines manager or select its entry
+        and press the *Start* button on the top. A window opens.
+        The VM Login should look like the right figure. In the login dialog box enter:
+
+        * *surf* as login
+        * *surf2019* as an initial password
+
+        You are now logged into the VM.
+
+   .. container:: rightside
+
+      .. _fig-VM_install3:
+      .. figure:: _static/figure/fig_install/VM_install3.png
+         :width: 500px
+
+         Add SURF-VM in VirtualBox
 
 
 
@@ -103,34 +128,46 @@ Changing Configuration on the SURF Virtual Machine
 By default, the VM surf is configurated as in table :numref:`tab-configVM`. You can keep all defaults parameters or if it is not
 adequate for your application you can change settings
 
-.. list-table::
+.. container:: twocol
 
- * - To change the configuration settings, you right-click the surf virtual machine’s name and choose *Setting*.
-     You can change setting such as: (1) increase/decrease the number of cores based on your performance desires,
-     (2) increase/decrease the number of GB of RAM allocated to your VM according to the size of you computational domain,
-     (3) add a 2nd network adapter e.g. Host-Only adapter so that the Host can have direct connection with the Guest.
+   .. container:: leftside
 
-   - .. _fig-VM_install4:
-     .. figure:: _static/figure/fig_install/VM_install4.png
+      * To change the configuration settings, you right-click the surf virtual machine’s name and choose *Setting*.
+        You can change setting such as: (1) increase/decrease the number of cores based on your performance desires,
+        (2) increase/decrease the number of GB of RAM allocated to your VM according to the size of you computational domain,
+        (3) add a 2nd network adapter e.g. Host-Only adapter so that the Host can have direct connection with the Guest.
 
-        Add SURF-VM in VirtualBox
+   .. container:: rightside
 
- * - Enlarge the virtual disk in order to storage more data.
+      .. _fig-VM_install4:
+      .. figure:: _static/figure/fig_install/VM_install4.png
+         :width: 500px
 
-     .. code-block:: sh
+         Add SURF-VM in VirtualBox
 
-        VBoxManage modifyhd YOUR_HD.vdi
-        –resize SIZE_MB
 
-   - .. _fig-VM_install5:
-     .. figure:: _static/figure/fig_install/VM_install5.png
+   .. container:: leftside
 
-        Enlarge the virtual disk
+      * Enlarge the virtual disk in order to storage more data.
+
+        .. code-block:: sh
+
+           VBoxManage modifyhd YOUR_HD.vdi
+           –resize SIZE_MB
+
+   .. container:: rightside
+
+      .. _fig-VM_install5:
+      .. figure:: _static/figure/fig_install/VM_install5.png
+         :width: 500px
+
+         Enlarge the virtual disk
+
 
 
 .. _tab-configVM:
 .. list-table:: Virtual Machine Summary Fields.
- :widths: 25 65 20
+ :widths: 2 6 2
  :header-rows: 1
 
  * - Parameter
@@ -228,7 +265,6 @@ SURF-NEMO package.
 Running the case study: Gulf of Taranto
 =======================================
 
-
 As case study we implement the SURF platform in the Gulf of Taranto in the northern Ionian Sea (fig xx).
 The nesting simulation start on 5 October 2014 at 00:00 and run until 7 October 2014 at 24:00.
 In order to execute this case study experiment, you can follow these steps:
@@ -257,61 +293,75 @@ In order to execute this case study experiment, you can follow these steps:
   	  necd ; cp setParFree.json /scratch/from_GUI/gulfTaranto_20141005/
 
 * After that, from the directory /scratch/surf/surf_nemo/current/scripts/, you just need to execute
-  the julia script run_exp.jl followed by the experiment ID gulfTaranto_20141005
+  the julia script run_exp.jl followed by the experiment ID ``gulfTaranto_20141005``
 
   .. code-block:: html
 
      julia run_exp.jl gulfTaranto_20141005
 
-  This will create the folder gulfTaranto_20141005 in the directory /scratch/surf/experiments/
-  with a directory tree as in fig.B.1 (refer to the Appendix A for more details)
+  This will create the folder gulfTaranto_20141005 in the directory ``/scratch/surf/experiments/``
+  with a directory tree as in fig.x.1 (refer to the Appendix x for more details)
 
+You can activate/deactivate specific tasks by setting logical parameters to True/False
+in the section ``set_lrun`` of the configuration file ``setParFree.json``
 
-.. list-table::
+.. container:: twocol
 
- * - .....enables the execution of the CHILD-MESHMASK GENERATION task ...
-     enables the execution of the ATMOSPHERIC-DATA-REGRIDDING task ...
-     enables the execution of the OCEAN-IC-DATA-REGRIDDING phase ...
-     enables the execution of the OCEAN-BC-DATA-REGRIDDING phase ...
-     enables the computation/copy of WEIGHT-FILEs for input_fields REMAPPING (if lrun_regridPre=True) ...
-     enables the execution of the NEMO code. The is shown in box 6.2.
+   .. container:: leftside
 
-   - .. code-block:: JSON
+      ``lrun_childMeshmask`` to  enable the execution of the CHILD-MESHMASK GENERATION task.
 
-        {"id":"A001","title":"set_lrun",
-           "items": [
-              {"name": "lrun_childMeshMask",
-               "value": "True"
-              },
-              {"name": "lrun_regridPreAtm",
-               "value": "True"
-              },
-              {"name": "lrun_regridPreOceIC",
-               "value": "True"
-              },
-              {"name": "lrun_regridPreOceBC",
-               "value": "True"
-              },
-              {"name": "lrun_regridPreWeights",
-               "value": "True"
-              },
-              {"name": "lrun_ocean",
-               "value": "True"
-              }
-           ]
-        }
+      ``lrun_regridPreAtm`` to enable the execution of the ATMOSPHERIC-DATA-REGRIDDING task.
 
+      ``lrun_regridPreOceIC`` to enable the execution of the OCEAN-IC-DATA-REGRIDDING task.
 
+      ``lrun_regridPreOceBC`` to enable the execution of the OCEAN-BC-DATA-REGRIDDING task.
+
+      ``lrun_regridPreWeights`` if you want to compute (=True) or just copy (=False) the WEIGHT-FILEs for REMAPPING in the Regridding phase.
+
+      ``lrun_ocean`` to enable the execution of the NEMO code.
+
+   .. container:: rightside
+
+      .. code-block:: JSON
+         :name: json_set_lrun
+         :caption: user-configuration file section set_lrun
+
+         {"id":"A001","title":"set_lrun",
+            "items": [
+               {"name": "lrun_childMeshMask",
+                "value": "True"
+               },
+               {"name": "lrun_regridPreAtm",
+                "value": "True"
+               },
+               {"name": "lrun_regridPreOceIC",
+                "value": "True"
+               },
+               {"name": "lrun_regridPreOceBC",
+                "value": "True"
+               },
+               {"name": "lrun_regridPreWeights",
+                "value": "True"
+               },
+               {"name": "lrun_ocean",
+                "value": "True"
+               }
+            ]
+         }
+
+|clearfloat|
 
 
 Post-processing the results
 ===========================
 
-View the results with various free software visiualisation tools
+The surf package is provided together with open source tools for data visualization and post-processing your data.
+You will find the free software packages NcView with graphical user interface
+and a suite of procedure using NCAR Graphics package with NCL and Python interface you can call from Command Line.
 
-You have some software for doing post processing. In this manual, we will use the free software packages
-NcView, NCL-NCAR Command Language. However, it is very well possible to use other (free or commercial)
-graphic software such as Pynoply or several scripting languages such as julia, Python, IDL, Matlab, as long
+However, it is very well possible to use other (free or commercial)
+graphic software such as Pynoply or several scripting languages such as julia, IDL, Matlab, as long
 as they can read the netCDF format.
 
 Visualizing the results with Ncview
@@ -349,7 +399,6 @@ The SURF-NEMO package include, as postprocessing, a suite of NCL functions to vi
 datasets, compare the child/parent fields, compare the simulation result with insitu or satellite datasets and
 convert datasets.
 
-
 .. list-table::
 
  * - .. _fig-test1_velxy:
@@ -371,120 +420,219 @@ In order to Post-processing the results of an existing experiment, you need to e
 ``run_postProc.jl`` followed by the experiment ID. Example for the case study experiment type the following
 command:
 
-
 .. code-block:: sh
 
    julia run_postproc.jl gulfTaranto_20141005
 
-.. list-table::
 
- * - .....enable/disable the plotting of the user defined Domains ...
-     enable/disable the plotting of the Indata Bat,Atm,OceIC,OceBC fields ...
-     enable/disable the plotting of the Extrapdata Atm,OceIC,OceBC fields ...
-     enable/disable the plotting of the Regriddata Bat,Atm,OceIC,OceBC,OceBCbdy fields ...
-     enable/disable the plotting of the Outdata Ocean fields ...
-     enable/disable the plotting of the child VS. parent Ocean fields ...
-     enable/disable the plotting of the surf VS. ctd Ocean fields ...
-     enable/disable the plotting of the surf VS. mooring Ocean fields ...
-     enable/disable the plotting of the surf VS. ferrybox Ocean fields ...
-     enable/disable the plotting of the surf VS. satellite Ocean fields ...
+You can activate/deactivate specific tasks by setting logical parameters to True/False
+in the sections ``set_lrun_post`` and ``set_visual_lplot`` of the configuration file ``setParFree.json``
+
+.. container:: twocol
+
+   .. container:: leftside
+
+      ``lrun_visDom`` to  enable the plotting of the user defined Domains.
+
+      ``lrun_visIndata`` to  enable the plotting of the Indata Bat,Atm,OceIC,OceBC fields.
+
+      ``lrun_visExtrapdata`` to enable the plotting of the Extrapdata Atm,OceIC,OceBC fields.
+
+      ``lrun_visRegriddata`` to enable the execution of the OCEAN-IC-DATA-REGRIDDING task.
+
+      ``lrun_visOutdata`` to enable the execution of the OCEAN-BC-DATA-REGRIDDING task.
+
+      ``lrun_chlVSpar`` if you want to compute (=True) or just copy (=False) the WEIGHT-FILEs for REMAPPING in the Regridding phase.
+
+      ``lrun_surfVSctd`` enables the execution of the NEMO code.
+
+      ``lrun_surfVSsat`` enables the execution of the NEMO code.
+
+      ``lrun_surfVSmooring`` enables the execution of the NEMO code.
+
+      ``lrun_surfVSferrybox`` enables the execution of the NEMO code.
+
+   .. container:: rightside
+
+      .. code-block:: JSON
+         :name: json_set_lrun_post
+         :caption: user-configuration file section set_lrun_post
+
+         {"id":"B000","title":"set_lrun_post",
+            "items": [
+                {"name": "lrun_visDom",
+                 "value": "True"
+                },
+                {"name": "lrun_visIndata",
+                 "value": "True"
+                },
+                {"name": "lrun_visExtrapdata",
+                 "value": "True"
+                },
+                {"name": "lrun_visRegriddata",
+                 "value": "True"
+                },
+                {"name": "lrun_visOutdata",
+                 "value ": "True"
+                },
+                {"name": "lrun_chlVSpar",
+                 "value": "True"
+                },
+                {"name": "lrun_surfVSctd",
+                 "value": "True"
+                },
+                {"name": "lrun_surfVSsat",
+                 "value": "True"
+                },
+                {"name": "lrun_surfVSmooring",
+                 "value": "True"
+                },
+                {"name": "lrun_surfVSferrybox",
+                 "value": "True"
+                }
+             ]
+         }
+
+|clearfloat|
 
 
-   - .. code-block:: JSON
 
-        {"id":"B000","title":"set_lrun_post",
+.. container:: twocol
+
+   .. container:: leftside
+
+      ``lplotMesh`` to  enable plotting of the Child MeshMask fields.
+
+      ``lplotBat`` to enable the plotting of the Bathymetry fields.
+
+      ``lplotAtm`` to enable the plotting of the Atmspheric fields.
+
+      ``lplotOceIC`` to enable the plotting of the Initial Condition Ocean fields.
+
+      ``lplotOceBC`` to enable the plotting of the Open Boundary Condition Ocean fields.
+
+      ``lplotOceBCbdy`` to enable the plotting of the Open Boundary Condition Ocean fields.
+
+      ``lplotOceOut`` to enable the plotting of the Output Ocean fields.
+
+   .. container:: rightside
+
+      .. code-block:: JSON
+         :name: json_set_visual_lplot
+         :caption: user-configuration file section set_visual_lplot
+
+         {"id":"B001","title":"set_visual_lplot",
            "items": [
-               {"name": "lrun_visIndata",
+               {"name": "lplotMesh",
                 "value": "True"
                },
-               {"name": "lrun_visExtrapdata",
+               {"name": "lplotBat",
                 "value": "True"
                },
-               {"name": "lrun_visRegriddata",
+               {"name": "lplotAtm",
                 "value": "True"
                },
-               {"name": "lrun_visOutdata",
+               {"name": "lplotOceIC",
                 "value ": "True"
                },
-               {"name": "lrun_chlVSpar",
+               {"name": "lplotOceBC",
                 "value": "True"
                },
-               {"name": "lrun_surfVSctd",
+               {"name": "lplotOceBCbdy",
                 "value": "True"
                },
-               {"name": "lrun_surfVSsat",
-                "value": "True"
-               },
-               {"name": "lrun_surfVSmooring",
-                "value": "True"
-               },
-               {"name": "lrun_surfVSferrybox",
+               {"name": "lplotOceOut",
                 "value": "True"
                }
             ]
-        }
+         }
 
-
- * - .....enable/disable the plotting of the Child MeshMask fields ...
-     enable/disable the plotting of the Bathymetry fields ...
-     enable/disable the plotting of the Atmspheric fields ...
-     enable/disable the plotting of the Initial Condition Ocean fields ...
-     enable/disable the plotting of the Open Boundary Condition Ocean fields ...
-     enable/disable the plotting of the Open Boundary Condition Ocean fields ...
-     enable/disable the plotting of the Output Ocean fields ...
-
-
-   - .. code-block:: JSON
-
-        {"id":"B001","title":"set_visual_lplot",
-          "items": [
-              {"name": "lplotMesh",
-               "value": "True"
-              },
-              {"name": "lplotBat",
-               "value": "True"
-              },
-              {"name": "lplotAtm",
-               "value": "True"
-              },
-              {"name": "lplotOceIC",
-               "value ": "True"
-              },
-              {"name": "lplotOceBC",
-               "value": "True"
-              },
-              {"name": "lplotOceBCbdy",
-               "value": "True"
-              },
-              {"name": "lplotOceOut",
-               "value": "True"
-              }
-           ]
-       }
+|clearfloat|
 
 
 Make a new experiments
 ----------------------
 
-If you want to make a new experiment (e.g. greenlandFjord_20170201), you can just copy the template user
-configuration file (setParFree.json) in the new folder ``/scratch/from_GUI/greenlandFjord_20170201/`` and
-setting it up according to your needs.
-Once your file is ready, from the directory ``/scratch/surf/surf_nemo/current/scripts/``, you need to
-execute the julia script run_exp.jl followed by the experiment ID greenlandFjord_20170201 (as we see
-in sec. xx).
+Let's assume you want to study the circulation of the Sermilik fjord in Greenland
+from 1 February 2017 at 00:00 to 7 February 2017 at 24:00.... add more details.
+
+* Choose the name of experiment ID (e.g. ``greenlandFjord_20170201``) and create the folder
+
+  .. code-block:: html
+
+     cd /scratch/from_GUI/ ; mkdir greenlandFjord_20170201
+
+* Copy the template configuration file ``/scratch/surf/surf_nemo/current/setParFree.json`` in the
+  directory ``/scratch/from_GUI/greenlandFjord_20170201``
+
+  .. code-block:: html
+
+     cp /scratch/surf/surf_nemo/current/setParFree.json ./greenlandFjord_20170201/
+
+* Modify the user configuration file ``setParFree.json`` according to your needs
+
+  .. code-block:: html
+
+     param1 = xxx
+     param2 = xxx
+     param3 = xxx
+     param4 = xxx
+
+* From the directory ``/scratch/surf/surf_nemo/current/scripts/``, execute
+  the julia script ``run_exp.jl`` followed by the experiment ID ``greenlandFjord_20170201``
+
+  .. code-block:: html
+
+     cd /scratch/surf/surf_nemo/current/scripts/ ;
+     julia run_exp.jl greenlandFjord_20170201
+
+* After running the simulation, you can display the simulation results by using
+  the julia script ``run_postproc.jl`` followed by the experiment ID ``greenlandFjord_20170201``
+
+  .. code-block:: html
+
+     julia run_postproc.jl greenlandFjord_20170201
+
 In principle you can simply use the template model and modify it to your needs, and not be too much
 concerned with the input files they create. But our advice is never to use the template model as black boxes.
 It is therefore important to understand how the codes work, which options they have and how their input
 files are structured.
 
 
-
-
 Multiple downscaling experiments
 --------------------------------
 
-You can produce a very high resolution model new multiple-nest experiment or downscaling from an existing
-experiment ...
-From an exisiting experiment (e.g. gulfTaranto_20141005) if you want to continue downscaling and generate
-a new higher-resolution nest (NEST2), you need to modify the user configuration file placed in a
-directory ``/scratch/surf/experiments/gulfTaranto_20141005/``
+Surf-nemo package includes multiple nesting capability
+(i.e. consecutive nested models can be implemented with increasing grid resolutions).
+Let's assume you want to downscaling from an existing experiment (e.g. from the template experiment
+``gulfTaranto_20141005``) in order to increase the spatial resolution to 800m ... add details.
+
+* Go to the existing experiment directory
+
+  .. code-block:: html
+
+     cd /scratch/surf/experiments/gulfTaranto_20141005/
+
+* Modify the user configuration file ``setParFree.json`` according to your needs
+
+  .. code-block:: html
+
+     param1 = xxx
+     param2 = xxx
+     param3 = xxx
+     param4 = xxx
+
+* From the directory ``/scratch/surf/experiments/gulfTaranto_20141005/code/ocean/scripts/``, execute
+  the julia script ``run_exp.jl`` followed by the experiment ID ``gulfTaranto_20141005``
+
+  .. code-block:: html
+
+     cd /scratch/surf/experiments/gulfTaranto_20141005/code/ocean/scripts/ ;
+     julia run_exp.jl gulfTaranto_20141005
+
+* After running the simulation, you can display the simulation results by using
+  the julia script ``run_postproc.jl`` followed by the experiment ID ``gulfTaranto_20141005``
+
+  .. code-block:: html
+
+     julia run_postproc.jl gulfTaranto_20141005
